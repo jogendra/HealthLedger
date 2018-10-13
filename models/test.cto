@@ -31,7 +31,7 @@ o String firstName
 o String lastName
 o String bloodGroup
 o Hospital[] preferedHospitals
---> Organ organToDonate
+o Organ organToDonate
 o Boolean donated  default = false
 }
 participant Receiver identified by receiverId {
@@ -40,7 +40,7 @@ o String firstName
 o String lastName
 o String bloodGroup
 o Hospital[] preferedHospitals
---> Organ requiredOrgan
+o Organ requiredOrgan
 o Boolean received  default = false
 }
 transaction OrganTransfer {
