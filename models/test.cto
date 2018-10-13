@@ -17,18 +17,31 @@
  */
 
 namespace test
-
-asset Donor identified by donorId {
-o String donorId
-o String firstName
-o String lastName
+asset Organ identified by organId {
+  o String organId
+  o String name
 }
 participant Hospital identified by hospitalId {
 o String hospitalId
 o String name
 }
-transaction AccountTransfer {
---> Account from
---> Account to
-o Double amount
+participant Donor identified by donorId {
+o String donorId
+o String firstName
+o String lastName
+o String bloodGroup
+o Hospital[] preferedHospitals
+--> Organ organToDonate
+}
+participant Receiver identified by receiverId {
+o String receiverId
+o String firstName
+o String lastName
+o String bloodGroup
+o Hospital[] preferedHospitals
+--> Organ requiredOrgan
+}
+transaction OrganTransfer {
+  --> Donor from
+  --> Receiver to
 }
