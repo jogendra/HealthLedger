@@ -17,6 +17,7 @@
  */
 
 namespace test
+
 asset Organ identified by organId {
   o String organId
   o String name
@@ -33,6 +34,7 @@ o String bloodGroup
 o Hospital[] preferedHospitals
 o Organ organToDonate
 o Boolean donated  default = false
+o Integer priorityPoints optional
 }
 participant Receiver identified by receiverId {
 o String receiverId
@@ -46,4 +48,5 @@ o Boolean received  default = false
 transaction OrganTransfer {
   --> Donor from
   --> Receiver to
+  o Integer rewardPonits
 }
