@@ -18,25 +18,18 @@
 
 namespace test
 
-participant SampleParticipant identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
+asset Account identified by accountId {
+o String accountId
+--> Customer owner
+o Double balance
 }
-
-asset SampleAsset identified by assetId {
-  o String assetId
-  --> SampleParticipant owner
-  o String value
+participant Customer identified by customerId {
+o String customerId
+o String firstName
+o String lastName
 }
-
-transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
-}
-
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
-  o String newValue
+transaction AccountTransfer {
+--> Account from
+--> Account to
+o Double amount
 }
