@@ -16,7 +16,7 @@
  * Write your model definitions here
  */
 
-namespace test
+namespace api
 
 asset Organ identified by organId {
   o String organId

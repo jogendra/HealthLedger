@@ -14,7 +14,7 @@
 
 /**
 * Sample transaction
-* @param {test.OrganTransfer} organTransfer
+* @param {api.OrganTransfer} organTransfer
 * @transaction
 */
 function organTransfer(organTransfer) {
@@ -24,12 +24,12 @@ function organTransfer(organTransfer) {
     organTransfer.from.donated = true;
     organTransfer.to.received = true;
     organTransfer.from.priorityPoints += organTransfer.rewardPonits;
-    return getParticipantRegistry('test.Donor')
+    return getParticipantRegistry('api.Donor')
     .then (function (participantRegistry) {
     return participantRegistry.update(organTransfer.from);
     })
     .then (function () {
-    return getParticipantRegistry('test.Receiver');
+    return getParticipantRegistry('api.Receiver');
     })
     .then(function (participantRegistry) {
     return participantRegistry.update(organTransfer.to);
