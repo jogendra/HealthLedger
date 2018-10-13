@@ -18,15 +18,14 @@
 
 namespace test
 
-asset Account identified by accountId {
-o String accountId
---> Customer owner
-o Double balance
-}
-participant Customer identified by customerId {
-o String customerId
+asset Donor identified by donorId {
+o String donorId
 o String firstName
 o String lastName
+}
+participant Hospital identified by hospitalId {
+o String hospitalId
+o String name
 }
 transaction AccountTransfer {
 --> Account from
