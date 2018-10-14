@@ -87,3 +87,6 @@ frontend-app/dist/
 
 # any card file
 *.card
+
+# OS X files
+*.DS_Store
