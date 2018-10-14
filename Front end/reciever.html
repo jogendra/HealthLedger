@@ -18,9 +18,9 @@
       <!-- Navbar start  -->
       <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Be a Reciever</a>
+      <a href="#" class="brand-logo center">Be a Receiver</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="reciever.html">Be a Donor</a></li>
+        <li><a href="donor.html">Be a Donor</a></li>
       </ul>
     </div>
   </nav>
@@ -32,7 +32,7 @@
           <div class="card-panel white">
             <span class="grey-text">
                 <div class="row">
-                    <h2> Enter the Reciever details </h2>
+                    <h2> Enter the Receiver details </h2>
                 </div>
                 <div class="row">
                     <form class="col s12">
@@ -53,11 +53,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='hospital'>Hospital preferred</a>
-                        <ul id='hospital' class='dropdown-content'>
-                                <li><a href="#!">Hospital1</a></li>
-                                
-                                <li><a href="#!">Hospital2</a></li>
+                        <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='hospitalList'>Hospital preferred</a>
+                        <ul id='hospitalList' class='dropdown-content'>
                         </ul>
                     </div>
                     <div class="row">
@@ -68,7 +65,7 @@
                     </div>
                     <div class="row">
                         <div class="col s6 m6 offset-m3">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
                         </div>
@@ -89,5 +86,66 @@
         <script>
              $('.dropdown-trigger').dropdown();
     </script>
+    <script>
+            /* Get request for the list of hospitals */
+            var hospitalListUrl="http://localhost:3000/api/api.Hospital";
+            var hospitalList=[];
+            $.getJSON(hospitalListUrl,function(data){
+                console.log(data);
+                $.each(data, function(key,val){
+                    // console.log($("#hospitalList").append("<li id='"+key+"'>"+val.name +"</li>"))
+                    hospitalList.push(val);
+                    $("#hospitalList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
+                });
+                console.log(hospitalList);
+            });
+            /* Post request  */
+            var hospitalId;
+            $("#hospitalList").on("click","li",function() {
+                hospitalId=$(this).attr('id');
+            })
+            $("#submit").click(function(){
+                event.preventDefault(); 
+                var receiverId = Math.floor((Math.random() * 100) + 1);
+                var firstName=$("#first_name").val();
+                var lastName=$("#last_name").val();
+                var bloodGroup=$("#blood_group").val();
+                var hospitalPreferred=hospitalList[hospitalId];
+                var organName=$("#organ_name").val();
+                var organId=Math.floor((Math.random() * 100) + 1);
+                console.log(firstName);
+                console.log(hospitalPreferred);
+                var receiverPostUrl="http://localhost:3000/api/api.Receiver";
+                console.log(lastName);
+                console.log(bloodGroup);
+                console.log(hospitalPreferred.name);
+                console.log(organName);
+                console.log(organId);
+        
+                $.post(receiverPostUrl,{
+          $class : "api.Receiver",
+          receiverId : receiverId  ,
+          firstName: firstName,
+          lastName: lastName,
+          bloodGroup: bloodGroup,
+          preferedHospitals: [
+            {
+              $class: "api.Hospital",
+              hospitalId: hospitalPreferred.hospitalId,
+              name: hospitalPreferred.name
+            }
+          ],
+          requiredOrgan : {
+            $class: "api.Organ",
+            organId: organId,
+            name: organName
+          },
+          received: false
+        }).done(function(data) {
+            console.log("SUccess");
+            console.log(data);
+        })
+            });
+            </script>
   </body>
 </html>

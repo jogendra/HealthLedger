@@ -97,7 +97,7 @@
             hospitalList.push(val);
             $("#hospitalList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
         });
-        console.log(hospitalList);
+        // console.log(hospitalList);
     });
     /* Post request  */
     var hospitalId;
@@ -105,6 +105,7 @@
         hospitalId=$(this).attr('id');
     })
     $("#submit").click(function(){
+        event.preventDefault(); 
         var donorId = Math.floor((Math.random() * 100) + 1);
         var firstName=$("#first_name").val();
         var lastName=$("#last_name").val();
@@ -124,8 +125,8 @@
   preferedHospitals: [
     {
       $class: "api.Hospital",
-      hospitalId: "1",
-      name: "hospital1"
+      hospitalId: hospitalPreferred.hospitalId,
+      name: hospitalPreferred.name
     }
   ],
   organToDonate: {
@@ -134,10 +135,9 @@
     name: organName
   },
   donated: false,
-  priorityPoints: 0
-}).done(function(data) {
-    console.log("SUccess");
-    console.log(data);
+  priorityPoints : 0
+}).done(function(data){
+    console.log("Done");
 })
     });
     </script>
