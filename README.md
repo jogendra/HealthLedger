@@ -1,6 +1,10 @@
+<img src="/Static/logo/icon.png" align="left" hspace="1" vspace="1" height="150" width="150">
+
 # Health Ledger
 
 Application for tracking Organs donations in hospitals and minimizing the scope of Organ trafficking using Blockchain (Hyperledger) technology.
+
+---
 
 ## Developers and Maintainers
 The project is developed and maintained by
