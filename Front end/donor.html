@@ -22,6 +22,10 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="reciever.html">Be a Reciever</a></li>
       </ul>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+            
+          </ul>
     </div>
   </nav>
   <!-- Navbar end  -->
@@ -58,12 +62,18 @@
                                 <!-- <li id="0">hospital1</li> -->
                         </ul>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                             <div class="input-field col s12 m12">
                                 <input  id="organ_name" type="text" class="validate">
                                 <label for="organ_name">Organ to be donated</label>
                             </div>
-                    </div>
+                    </div> -->
+                    <div class="row">
+                            <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='organList'>Organ to be donated</a>
+                            <ul id='organList' class=' dropdown-content'>
+                                    <!-- <li id="0">hospital1</li> -->
+                            </ul>
+                        </div>
                     <div class="row">
                         <div class="col s6 m6 offset-m3">
                             <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Submit
@@ -99,10 +109,25 @@
         });
         // console.log(hospitalList);
     });
+    var organListUrl="http://localhost:3000/api/api.Organ";
+    var organList=[];
+    $.getJSON(organListUrl,function(data){
+        console.log(data);
+        $.each(data, function(key,val){
+            // console.log($("#organList").append("<li id='"+key+"'>"+val.name +"</li>"))
+            organList.push(val);
+            $("#organList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
+        });
+        // console.log(organList);
+    });
     /* Post request  */
     var hospitalId;
     $("#hospitalList").on("click","li",function() {
         hospitalId=$(this).attr('id');
+    });
+    var organIndex;
+    $("#organList").on("click","li",function() {
+        organIndex=$(this).attr('id');
     });
     $("#submit").click(function(){
         event.preventDefault(); 
@@ -111,8 +136,9 @@
         var lastName=$("#last_name").val();
         var bloodGroup=$("#blood_group").val();
         var hospitalPreferred=hospitalList[hospitalId];
-        var organName=$("#organ_name").val();
-        var organId=Math.floor((Math.random() * 100) + 1);
+        var organObject=organList[organIndex];
+        var organName=organObject.name;
+        var organId=organObject.organId;
         console.log(firstName);
         console.log(hospitalPreferred);
         var donorPostUrl="http://localhost:3000/api/api.Donor";
