@@ -18,7 +18,7 @@
       <!-- Navbar start  -->
       <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Transfer organ</a>
+      <a href="#" class="brand-logo center">Assign organ</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="reciever.html">Be a Reciever</a></li>
         <li><a href="reciever.html">Be a Donor</a></li>
@@ -29,54 +29,80 @@
   <!-- Form start  -->
 
   <div class="row DonorForm center">
-        <div class="col s6 m6 offset-m3 ">
+        <!-- <div class="col s6 m6 offset-m3 ">
           <div class="card-panel white">
             <span class="grey-text">
                 <div class="row">
                     <h2> Transfer organ  </h2>
                 </div>
-                <!-- <div class="row">
-                    <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6 m6">
-                            <input  id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
+            </span>
+          </div>
+        </div> -->
+        <div class="row">
+            <div class="col m6 offset-m3">
+                    <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='hospitalList'>Select Hospital</a>
+                    <ul id='hospitalList' class=' dropdown-content'>
+                            <!-- <li id="0">hospital1</li> -->
+                    </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 ">
+          <div class="card-panel white">
+            <span class="grey-text">
+                <div class="row">
+                    <div class="col s6 m6">
+          <div class="card-panel white">
+            <span class="grey-text">
+                <div class="row">
+      <div class="collection" >
+            <a class="collection-header"><h4>Donor List</h4></a>
+            <div id="donorList">
+            <!-- <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item active">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a> -->
+        </div>
+          </div>
+                </div>
+            </span>
+          </div>
+        </div>
+        <div class="col s6 m6  ">
+                <div class="card-panel white">
+                  <span class="grey-text">
+                      <div class="row">
+                            <div class="collection">
+                                <div id="receiverList">
+                                    <a class="collection-header"><h4>Reciever List</h4></a>
+                                    <!-- <a href="#!" class="collection-item">Alvin</a>
+                                    <a href="#!" class="collection-item active">Alvin</a>
+                                    <a href="#!" class="collection-item">Alvin</a>
+                                    <a href="#!" class="collection-item">Alvin</a> -->
+                                  </div>
+                      </div>
+                  </span>
+                </div>
+              </div>
+             
+                </div>
+                <div class="row">
+                        <div class="input-field col s6 m6 offset-m3">
+                            <input  id="incentive" type="text" class="validate">
+                            <label for="incentive">Incentive</label>
                         </div>
-                        <div class="input-field col s6 m6">
-                             <input id="last_name" type="text" class="validate">
-                             <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12">
-                            <input  id="blood_group" type="text" class="validate">
-                            <label for="blood_group">Blood group</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='hospital'>Hospital preferred</a>
-                        <ul id='hospital' class='dropdown-content'>
-                                <li><a href="#!">Hospital1</a></li>
-                                <li><a href="#!">Hospital2</a></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                            <div class="input-field col s12 m12">
-                                <input  id="organ_name" type="text" class="validate">
-                                <label for="organ_name">Organ name</label>
-                            </div>
-                    </div>
-                    <div class="row">
+                </div>
+                <div class="row">
                         <div class="col s6 m6 offset-m3">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <button id="assign" class="btn waves-effect waves-light" type="submit" name="action">Assign
     <i class="material-icons right">send</i>
   </button>
                         </div>
-                    </div>
-                    </form> -->
-                <!-- </div> -->
+                </div>
+
             </span>
           </div>
+        </div>
         </div>
       </div>
                 
@@ -88,6 +114,84 @@
     
         <script>
              $('.dropdown-trigger').dropdown();
+    </script>
+    <script>
+     var hospitalListUrl="http://localhost:3000/api/api.Hospital";
+    var hospitalList=[];
+    $.getJSON(hospitalListUrl,function(data){
+        console.log(data);
+        $.each(data, function(key,val){
+            // console.log($("#hospitalList").append("<li id='"+key+"'>"+val.name +"</li>"))
+            hospitalList.push(val);
+            $("#hospitalList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
+        });
+        // console.log(hospitalList);
+    });
+    var hospitalId;
+    $("#hospitalList").on("click","li",function() {
+        $(".collection-item").remove();
+        hospitalId=$(this).attr('id');
+        var selectedHospital=hospitalList[hospitalId];
+        /* For Displaying all the donor's */
+        var DonorGetUrl="http://localhost:3000/api/api.Donor";
+        $.getJSON(DonorGetUrl,function(data){
+        console.log(data[0].firstName);
+        var donorList=[];
+        $.each(data,function(key,val){
+            console.log(val.preferedHospitals[0].hospitalId);
+            console.log(selectedHospital.hospitalId);
+            if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
+                console.log(val.firstName);
+                $("#donorList").append("<a id='donorItem' donorId='"+val.donorId+ "'class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.organToDonate.name +")"+"</a>");
+            }
+        })
+    });
+    /* For Displaying all the receiver's */
+    var ReceiverGetUrl="http://localhost:3000/api/api.Receiver";
+        $.getJSON(ReceiverGetUrl,function(data){
+            
+        console.log(data[0].firstName);
+        var receiverList=[];
+        $.each(data,function(key,val){
+            console.log(val.preferedHospitals[0].hospitalId);
+            console.log(selectedHospital.hospitalId);
+            if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
+                console.log(val.firstName);
+                $("#receiverList").append("<a id='receiverItem'  receiverId='"+val.receiverId+ "' class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.requiredOrgan.name+")"+"</a>");
+            }
+        })
+    });
+    });
+    /* For selecting the Reciever */
+    $("#donorList").on("click","a",function() {
+        $(this).addClass("active");
+        $(this).addClass("activeDonor")
+    });
+    $("#receiverList").on("click","a",function() {
+        $(this).addClass("active");
+        $(this).addClass("activeReceiver");
+    });
+
+    // Now do the transaction 
+    $("#assign").click(function(){
+        event.preventDefault();
+        var incentive=$("#incentive").val();
+        var from="resource:api.Donor#"+$(".activeDonor").attr("donorId");
+        var to="resource:api.Receiver#"+$(".activeReceiver").attr("receiverId");
+        console.log(from);
+        console.log(to);
+        console.log(incentive);
+        var transactionUrl="http://localhost:3000/api/api.OrganTransfer";
+        $.post(transactionUrl,{
+    $class: "api.OrganTransfer",
+    from: from ,
+    to: to,
+    rewardPonits: incentive
+}).done(function(data){
+    console.log("success");
+    console.log(data);
+})
+    })
     </script>
   </body>
 </html>
