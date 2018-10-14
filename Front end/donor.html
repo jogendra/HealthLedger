@@ -103,7 +103,7 @@
     var hospitalId;
     $("#hospitalList").on("click","li",function() {
         hospitalId=$(this).attr('id');
-    })
+    });
     $("#submit").click(function(){
         event.preventDefault(); 
         var donorId = Math.floor((Math.random() * 100) + 1);
