@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    
 <style>
-
+.dropdown-trigger{
+    margin-top : 50px;
+}
 </style>
 </head>
 
@@ -23,6 +25,10 @@
         <li><a href="history.html">See all transfers</a></li>
         
       </ul>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+            
+          </ul>
     </div>
   </nav>
   <!-- Navbar end  -->
@@ -200,7 +206,7 @@ $.ajax({
     url: deleteDonorUrl,
     data: {},
     success: function(msg){
-        alert("Data Deleted: " + msg);
+        console.log("Data Deleted: " + msg);
     }
 });
 
@@ -212,7 +218,7 @@ $.ajax({
     url: deleteReceiverUrl,
     data: {},
     success: function(msg){
-        alert("Data Deleted: " + msg);
+        console.log("Data Deleted: " + msg);
     }
 });
 })
