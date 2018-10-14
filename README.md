@@ -44,5 +44,9 @@ The project is developed and maintained by
 <a href = "https://www.linkedin.com/in/iti-shree-6b0ba210b/"><img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/></a>
 </p>
 </td>
-<tr>
-  </table>
+</tr>
+</table>
+  
+## License
+
+This project is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
