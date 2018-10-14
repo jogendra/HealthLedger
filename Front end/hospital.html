@@ -84,6 +84,13 @@
                   </span>
                 </div>
               </div>
+             
+                </div>
+                <div class="row">
+                        <div class="input-field col s6 m6 offset-m3">
+                            <input  id="incentive" type="text" class="validate">
+                            <label for="incentive">Incentive</label>
+                        </div>
                 </div>
                 <div class="row">
                         <div class="col s6 m6 offset-m3">
@@ -91,6 +98,8 @@
     <i class="material-icons right">send</i>
   </button>
                         </div>
+                </div>
+
             </span>
           </div>
         </div>
@@ -120,6 +129,7 @@
     });
     var hospitalId;
     $("#hospitalList").on("click","li",function() {
+        $(".collection-item").remove();
         hospitalId=$(this).attr('id');
         var selectedHospital=hospitalList[hospitalId];
         /* For Displaying all the donor's */
@@ -132,13 +142,14 @@
             console.log(selectedHospital.hospitalId);
             if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
                 console.log(val.firstName);
-                $("#donorList").append("<a class='collection-item' id='"+key+"'>"+val.firstName+"</a>");
+                $("#donorList").append("<a id='donorItem' donorId='"+val.donorId+ "'class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.organToDonate.name +")"+"</a>");
             }
         })
     });
     /* For Displaying all the receiver's */
     var ReceiverGetUrl="http://localhost:3000/api/api.Receiver";
         $.getJSON(ReceiverGetUrl,function(data){
+            
         console.log(data[0].firstName);
         var receiverList=[];
         $.each(data,function(key,val){
@@ -146,13 +157,41 @@
             console.log(selectedHospital.hospitalId);
             if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
                 console.log(val.firstName);
-                $("#receiverList").append("<a class='collection-item' id='"+key+"'>"+val.firstName+"</a>");
+                $("#receiverList").append("<a id='receiverItem'  receiverId='"+val.receiverId+ "' class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.requiredOrgan.name+")"+"</a>");
             }
         })
     });
     });
-    
+    /* For selecting the Reciever */
+    $("#donorList").on("click","a",function() {
+        $(this).addClass("active");
+        $(this).addClass("activeDonor")
+    });
+    $("#receiverList").on("click","a",function() {
+        $(this).addClass("active");
+        $(this).addClass("activeReceiver");
+    });
 
+    // Now do the transaction 
+    $("#assign").click(function(){
+        event.preventDefault();
+        var incentive=$("#incentive").val();
+        var from="resource:api.Donor#"+$(".activeDonor").attr("donorId");
+        var to="resource:api.Receiver#"+$(".activeReceiver").attr("receiverId");
+        console.log(from);
+        console.log(to);
+        console.log(incentive);
+        var transactionUrl="http://localhost:3000/api/api.OrganTransfer";
+        $.post(transactionUrl,{
+    $class: "api.OrganTransfer",
+    from: from ,
+    to: to,
+    rewardPonits: incentive
+}).done(function(data){
+    console.log("success");
+    console.log(data);
+})
+    })
     </script>
   </body>
 </html>
