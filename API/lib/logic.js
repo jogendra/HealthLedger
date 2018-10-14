@@ -19,7 +19,10 @@
 */
 function organTransfer(organTransfer) {
     if (organTransfer.from.bloodGroup != organTransfer.to.bloodGroup) {
-    throw new Error ("The blood group of receiver and donor is not matching.");
+    throw new Error ("Invalid Transfer: The blood group of receiver and donor is not matching.");
+    }
+    if (organTransfer.from.organToDonate != organTransfer.to.requiredOrgan) {
+        throw new Error ("Invalid Transfer: The donated and required organs should be the same.")
     }
     organTransfer.from.donated = true;
     organTransfer.to.received = true;
