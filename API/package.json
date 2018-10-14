@@ -2,9 +2,9 @@
   "engines": {
     "composer": "^0.20.2"
   },
-  "name": "test-bank",
+  "name": "api",
   "version": "0.0.1",
-  "description": "basic bank app",
+  "description": "basic api",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/test-bank.bna",
     "pretest": "npm run lint",
