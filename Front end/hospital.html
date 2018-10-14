@@ -20,8 +20,8 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Assign organ</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="reciever.html">Be a Reciever</a></li>
-        <li><a href="reciever.html">Be a Donor</a></li>
+        <li><a href="history.html">See all transfers</a></li>
+        
       </ul>
     </div>
   </nav>
@@ -135,13 +135,13 @@
         /* For Displaying all the donor's */
         var DonorGetUrl="http://localhost:3000/api/api.Donor";
         $.getJSON(DonorGetUrl,function(data){
-        console.log(data[0].firstName);
+        // console.log(data[0].firstName);
         var donorList=[];
         $.each(data,function(key,val){
-            console.log(val.preferedHospitals[0].hospitalId);
-            console.log(selectedHospital.hospitalId);
+            // console.log(val.preferedHospitals[0].hospitalId);
+            // console.log(selectedHospital.hospitalId);
             if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
-                console.log(val.firstName);
+                // console.log(val.firstName);
                 $("#donorList").append("<a id='donorItem' donorId='"+val.donorId+ "'class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.organToDonate.name +")"+"</a>");
             }
         })
@@ -150,13 +150,13 @@
     var ReceiverGetUrl="http://localhost:3000/api/api.Receiver";
         $.getJSON(ReceiverGetUrl,function(data){
             
-        console.log(data[0].firstName);
+        // console.log(data[0].firstName);
         var receiverList=[];
         $.each(data,function(key,val){
-            console.log(val.preferedHospitals[0].hospitalId);
-            console.log(selectedHospital.hospitalId);
+            // console.log(val.preferedHospitals[0].hospitalId);
+            // console.log(selectedHospital.hospitalId);
             if(val.preferedHospitals[0].hospitalId==selectedHospital.hospitalId){
-                console.log(val.firstName);
+                // console.log(val.firstName);
                 $("#receiverList").append("<a id='receiverItem'  receiverId='"+val.receiverId+ "' class='collection-item' id='"+key+"'>"+val.firstName +"(   Blood group: " + val.bloodGroup + "   Organ: " + val.requiredOrgan.name+")"+"</a>");
             }
         })
@@ -176,8 +176,10 @@
     $("#assign").click(function(){
         event.preventDefault();
         var incentive=$("#incentive").val();
-        var from="resource:api.Donor#"+$(".activeDonor").attr("donorId");
-        var to="resource:api.Receiver#"+$(".activeReceiver").attr("receiverId");
+        var fromId=$(".activeDonor").attr("donorId");
+        var from="resource:api.Donor#"+fromId;
+        var toId=$(".activeReceiver").attr("receiverId");
+        var to="resource:api.Receiver#"+toId;
         console.log(from);
         console.log(to);
         console.log(incentive);
@@ -190,7 +192,33 @@
 }).done(function(data){
     console.log("success");
     console.log(data);
+    console.log(fromId);
+var deleteDonorUrl="http://localhost:3000/api/api.Donor/"+fromId;
+console.log(deleteDonorUrl);
+$.ajax({
+    type: "DELETE",
+    url: deleteDonorUrl,
+    data: {},
+    success: function(msg){
+        alert("Data Deleted: " + msg);
+    }
+});
+
+console.log(toId);
+var deleteReceiverUrl="http://localhost:3000/api/api.Receiver/"+toId;
+console.log(deleteReceiverUrl);
+$.ajax({
+    type: "DELETE",
+    url: deleteReceiverUrl,
+    data: {},
+    success: function(msg){
+        alert("Data Deleted: " + msg);
+    }
+});
 })
+
+
+
     })
     </script>
   </body>
