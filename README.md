@@ -56,7 +56,7 @@ The project is developed and maintained by
 - Clone the repo `git clone https://github.com/jogendra/HealthLedger.git`
 ## Running the API Backend
 - Goto the API directory
-- First install the [Hyperledger composer](https://hyperledger.github.io/composer/installing/installing-prereqs.html). Then install the [development environment](https://hyperledger.github.io/composer/installing/development-tools.html).
+- First install the [Hyperledger composer](https://hyperledger.github.io/composer/latest/installing/installing-prereqs.html). Then install the [development environment](https://hyperledger.github.io/composer/latest/installing/development-tools.html).
 - `composer archive create -t dir -n .`
 - `composer network install --card PeerAdmin@hlfv1 --archiveFile api@0.0.1.bna`
 - `composer network start --networkName api --networkVersion 0.0.1 --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --file networkadmin.card`
