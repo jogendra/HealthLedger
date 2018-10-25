@@ -50,6 +50,17 @@ The project is developed and maintained by
 </td>
 </tr>
 </table>
+
+## The problems HealthLedger solves
+Our aim is to minimize the scope of organ trafficking with the help of Blockchain technology.
+
+- Financially weaker group sell their organs in order to get out of debt.
+
+- Some doctors taking organs from brain dead patient without permission of their family (or without patient having signed required docs for willingly donating their organs before death).
+
+- The records that are maintained of the organs donors and organs receiver is not secure enough and is not  transparent and could  easily be hacked or altered.
+
+- With the help of HyperLedger we can easily dodge this issues.
   
 # Instructions to run
 
