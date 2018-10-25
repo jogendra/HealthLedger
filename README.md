@@ -69,6 +69,10 @@ The project is developed and maintained by
 - Open the `index.html` file
 - The front end is up and running 
 
+## Demo
+Click on the image belowe to watch the demo of the Application.
+[![HealthLedger Application Demo](/Static/screenshots/1.png)](https://www.youtube.com/watch?v=yFfFxOFAh2w)
+
 
 ## License
 
