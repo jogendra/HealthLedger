@@ -6,18 +6,19 @@
 <!-- Check by changing each `[ ]` to `[x]` Please take note of the whitespace as it matters.-->
 
 - [ ] Included a Preview link and screenshot showing after and before the changes.
-- [x] Included a description of the change below.
+- [ ] Included a description of the change below.
 - [ ] Squashed the commits.
 
 # Changes done in this Pull Request
 
-I Fixed scrollable homepage
+<!-- If your change will be reflected on the website, please provide a Test Link **Hint : `master`** -->
 
-- Fixes #3
+- [Preview Link](url)
+  <!-- If you fully fixed some issue, please insert the issue number after the #.
+  If you have not completely fixed an issue but only some part of it, then remove “Fixes #” and simply link the PR to the issue by writing '#<Issue Number>' -->
+- Fixes #<Issue Number>
 
 ## Description / Changes
-
-I add one line in CSS
 
 ## Screenshots if any:
 
