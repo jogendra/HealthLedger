@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   
+<style>
+
+</style>
+</head>
+
+  <body>
+      <!-- Navbar start  -->
+      <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Log In</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="../index.html">Home</a></li>
+            
+          </ul>
+    </div>
+  </nav>
+  <!-- Navbar end  -->
+  <!-- Form start  -->
+
+  <div class="row DonorForm center">
+        <div class="col s6 m6 offset-m3 ">
+          <div class="card-panel white">
+            <span class="grey-text">
+                <div class="row">
+                    <h2> Enter your credentials </h2>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input  id="email" type="email" class="validate">
+                        <label for="email">Email-Id</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input  id="password" type="password" class="validate">
+                       <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 m6 offset-m3">
+                        <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Log In
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                <p>Not a member?</p>
+                <div class="row">
+                    <div class="col s6 m6 offset-m3">
+                        <button class="btn waves-effect waves-light" type="button" onclick="location.href='register.html'">Register
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </span>
+          </div>
+        </div>
+      </div>
+  <!-- Form end  -->
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+             $('.dropdown-trigger').dropdown();
+        </script>
+  </body>
+</html>
