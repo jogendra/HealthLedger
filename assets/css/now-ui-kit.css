@@ -5480,6 +5480,10 @@ img {
   box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.2);
 }
 
+.index-page {
+  overflow: hidden;
+}
+
 .index-page .page-header {
   height: 125vh;
 }
