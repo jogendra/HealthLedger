@@ -2,171 +2,197 @@
 <html>
   <head>
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   
-<style>
-
-</style>
-</head>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <meta name="title" content="Donate - Health Ledger">
+    <!--icon-->
+    <link rel="icon" type="image/png" href="../assets/img/icon.png" />
+    <title>Donate</title>
+    <style></style>
+  </head>
 
   <body>
-      <!-- Navbar start  -->
-      <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Be a Donor</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="reciever.html">Be a Reciever</a></li>
-      </ul>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="../index.html">Home</a></li>
-            
-          </ul>
-    </div>
-  </nav>
-  <!-- Navbar end  -->
-  <!-- Form start  -->
+    <!-- Navbar start  -->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Be a Donor</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="reciever.html">Be a Reciever</a></li>
+        </ul>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="../index.html">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar end  -->
+    <!-- Form start  -->
 
-  <div class="row DonorForm center">
-        <div class="col s12 m6 offset-m3 ">
-          <div class="card-panel white">
-            <span class="grey-text">
+    <div class="row DonorForm center">
+      <div class="col s12 m6 offset-m3 ">
+        <div class="card-panel white">
+          <span class="grey-text">
+            <div class="row"><h2>Enter the Donor details</h2></div>
+            <div class="row">
+              <form class="col s12">
                 <div class="row">
-                    <h2> Enter the Donor details </h2>
+                  <div class="input-field col s6 m6">
+                    <input id="first_name" type="text" class="validate" />
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div class="input-field col s6 m6">
+                    <input id="last_name" type="text" class="validate" />
+                    <label for="last_name">Last Name</label>
+                  </div>
                 </div>
                 <div class="row">
-                    <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6 m6">
-                            <input  id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6 m6">
-                             <input id="last_name" type="text" class="validate">
-                             <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12">
-                            <input  id="blood_group" type="text" class="validate">
-                            <label for="blood_group">Blood group</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='hospitalList'>Hospital preferred</a>
-                        <ul id='hospitalList' class=' dropdown-content'>
-                                <!-- <li id="0">hospital1</li> -->
-                        </ul>
-                    </div>
-                    <!-- <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="blood_group" type="text" class="validate" />
+                    <label for="blood_group">Blood group</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <a
+                    class="col s12 m12 dropdown-trigger btn"
+                    href="#"
+                    data-target="hospitalList"
+                    >Hospital preferred</a
+                  >
+                  <ul id="hospitalList" class=" dropdown-content">
+                    <!-- <li id="0">hospital1</li> -->
+                  </ul>
+                </div>
+                <!-- <div class="row">
                             <div class="input-field col s12 m12">
                                 <input  id="organ_name" type="text" class="validate">
                                 <label for="organ_name">Organ to be donated</label>
                             </div>
                     </div> -->
-                    <div class="row">
-                            <a class='col s12 m12 dropdown-trigger btn' href='#' data-target='organList'>Organ to be donated</a>
-                            <ul id='organList' class=' dropdown-content'>
-                                    <!-- <li id="0">hospital1</li> -->
-                            </ul>
-                        </div>
-                    <div class="row">
-                        <div class="col s6 m6 offset-m3">
-                            <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
-                    </form>
+                <div class="row">
+                  <a
+                    class="col s12 m12 dropdown-trigger btn"
+                    href="#"
+                    data-target="organList"
+                    >Organ to be donated</a
+                  >
+                  <ul id="organList" class=" dropdown-content">
+                    <!-- <li id="0">hospital1</li> -->
+                  </ul>
                 </div>
-            </span>
-          </div>
+                <div class="row">
+                  <div class="col s6 m6 offset-m3">
+                    <button
+                      class="btn waves-effect waves-light"
+                      id="submit"
+                      type="submit"
+                      name="action"
+                    >
+                      Submit <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </span>
         </div>
       </div>
-                
-  <!-- Form end  -->
+    </div>
+
+    <!-- Form end  -->
 
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-             $('.dropdown-trigger').dropdown();
+    <script>
+      $(".dropdown-trigger").dropdown();
     </script>
     <script>
-    /* Get request for the list of hospitals */
-    var hospitalListUrl="http://localhost:3000/api/api.Hospital";
-    var hospitalList=[];
-    $.getJSON(hospitalListUrl,function(data){
+      /* Get request for the list of hospitals */
+      var hospitalListUrl = "http://localhost:3000/api/api.Hospital";
+      var hospitalList = [];
+      $.getJSON(hospitalListUrl, function(data) {
         console.log(data);
-        $.each(data, function(key,val){
-            // console.log($("#hospitalList").append("<li id='"+key+"'>"+val.name +"</li>"))
-            hospitalList.push(val);
-            $("#hospitalList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
+        $.each(data, function(key, val) {
+          // console.log($("#hospitalList").append("<li id='"+key+"'>"+val.name +"</li>"))
+          hospitalList.push(val);
+          $("#hospitalList").append(
+            "<li class='list-item' id='" + key + "'>" + val.name + "</li>"
+          );
         });
         // console.log(hospitalList);
-    });
-    var organListUrl="http://localhost:3000/api/api.Organ";
-    var organList=[];
-    $.getJSON(organListUrl,function(data){
+      });
+      var organListUrl = "http://localhost:3000/api/api.Organ";
+      var organList = [];
+      $.getJSON(organListUrl, function(data) {
         console.log(data);
-        $.each(data, function(key,val){
-            // console.log($("#organList").append("<li id='"+key+"'>"+val.name +"</li>"))
-            organList.push(val);
-            $("#organList").append("<li class='list-item' id='"+key+"'>"+val.name +"</li>");
+        $.each(data, function(key, val) {
+          // console.log($("#organList").append("<li id='"+key+"'>"+val.name +"</li>"))
+          organList.push(val);
+          $("#organList").append(
+            "<li class='list-item' id='" + key + "'>" + val.name + "</li>"
+          );
         });
         // console.log(organList);
-    });
-    /* Post request  */
-    var hospitalId;
-    $("#hospitalList").on("click","li",function() {
-        hospitalId=$(this).attr('id');
-    });
-    var organIndex;
-    $("#organList").on("click","li",function() {
-        organIndex=$(this).attr('id');
-    });
-    $("#submit").click(function(){
-        event.preventDefault(); 
-        var donorId = Math.floor((Math.random() * 100) + 1);
-        var firstName=$("#first_name").val();
-        var lastName=$("#last_name").val();
-        var bloodGroup=$("#blood_group").val();
-        var hospitalPreferred=hospitalList[hospitalId];
-        var organObject=organList[organIndex];
-        var organName=organObject.name;
-        var organId=organObject.organId;
+      });
+      /* Post request  */
+      var hospitalId;
+      $("#hospitalList").on("click", "li", function() {
+        hospitalId = $(this).attr("id");
+      });
+      var organIndex;
+      $("#organList").on("click", "li", function() {
+        organIndex = $(this).attr("id");
+      });
+      $("#submit").click(function() {
+        event.preventDefault();
+        var donorId = Math.floor(Math.random() * 100 + 1);
+        var firstName = $("#first_name").val();
+        var lastName = $("#last_name").val();
+        var bloodGroup = $("#blood_group").val();
+        var hospitalPreferred = hospitalList[hospitalId];
+        var organObject = organList[organIndex];
+        var organName = organObject.name;
+        var organId = organObject.organId;
         console.log(firstName);
         console.log(hospitalPreferred);
-        var donorPostUrl="http://localhost:3000/api/api.Donor";
-        $.post(donorPostUrl,{
-  $class : "api.Donor",
-  donorId : donorId  ,
-  firstName: firstName,
-  lastName: lastName,
-  bloodGroup: bloodGroup,
-  preferedHospitals: [
-    {
-      $class: "api.Hospital",
-      hospitalId: hospitalPreferred.hospitalId,
-      name: hospitalPreferred.name
-    }
-  ],
-  organToDonate: {
-    $class: "api.Organ",
-    organId: organId,
-    name: organName
-  },
-  donated: false,
-  priorityPoints : 0
-}).done(function(data){
-    console.log("Done");
-    M.toast({html: 'Added Donor'})
-})
-    });
+        var donorPostUrl = "http://localhost:3000/api/api.Donor";
+        $.post(donorPostUrl, {
+          $class: "api.Donor",
+          donorId: donorId,
+          firstName: firstName,
+          lastName: lastName,
+          bloodGroup: bloodGroup,
+          preferedHospitals: [
+            {
+              $class: "api.Hospital",
+              hospitalId: hospitalPreferred.hospitalId,
+              name: hospitalPreferred.name
+            }
+          ],
+          organToDonate: {
+            $class: "api.Organ",
+            organId: organId,
+            name: organName
+          },
+          donated: false,
+          priorityPoints: 0
+        }).done(function(data) {
+          console.log("Done");
+          M.toast({ html: "Added Donor" });
+        });
+      });
     </script>
   </body>
 </html>
