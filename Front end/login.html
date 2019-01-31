@@ -20,24 +20,51 @@
     <meta name="title" content="Login - Health Ledger" />
     <!--icon-->
     <link rel="icon" type="image/png" href="../assets/img/icon.png" />
-    <style></style>
+    <style>
+      .fixed-nav {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        }
+
+        .padding-top-form {
+        padding-top: 5rem;
+        }
+    </style>
     <title>Login</title>
   </head>
 
   <body>
     <!-- Navbar start  -->
-    <nav>
+    <nav class="fixed-nav">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Log In</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="../index.html">Home</a></li>
-        </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+             <li><a href="reciever.html">Be a Reciever</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="donor.html">Donor</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="hospital.html">Hospital</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="history.html">History</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="register.html">Register</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="../index.html">Home</a></li>
+          </ul>
       </div>
     </nav>
     <!-- Navbar end  -->
     <!-- Form start  -->
 
-    <div class="row DonorForm center">
+    <div class="row DonorForm center padding-top-form">
       <div class="col s12 m6 offset-m3 ">
         <div class="card-panel white">
           <span class="grey-text">
