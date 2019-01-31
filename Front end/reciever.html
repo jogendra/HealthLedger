@@ -20,26 +20,46 @@
     <title>Receiver</title>
     <!--icon-->
     <link rel="icon" type="image/png" href="../assets/img/icon.png" />
-    <style></style>
+    <style>
+      .fixed-nav {
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      }
+
+      .padding-top-form {
+        padding-top: 5rem;
+      }
+
+     .ml {
+       margin-left: 2rem;
+     }
+
+     .mr {
+       margin-right: 2rem;
+     }
+    </style>
   </head>
 
   <body>
     <!-- Navbar start  -->
-    <nav>
+    <nav class="fixed-nav">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Be a Receiver</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="donor.html">Be a Donor</a></li>
+        <a href="#" class="brand-logo left ml">Be a Receiver</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down mr">
+            <li><a href="../index.html">Home</a></li>
         </ul>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="../index.html">Home</a></li>
+        <ul id="nav-mobile" class="right hide-on-med-and-down mr">
+          <li><a href="donor.html">Be a Donor</a></li>
         </ul>
       </div>
     </nav>
     <!-- Navbar end  -->
     <!-- Form start  -->
 
-    <div class="row DonorForm center">
+    <div class="row DonorForm center padding-top-form">
       <div class="col s12 m6 offset-m3 ">
         <div class="card-panel white">
           <span class="grey-text">

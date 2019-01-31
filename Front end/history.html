@@ -20,26 +20,46 @@
     <!--icon-->
     <link rel="icon" type="image/png" href="../assets/img/icon.png" />
     <meta name="title" content="History - Health Ledger" />
-    <style></style>
+    <style>
+        .fixed-nav {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        }
+
+        .padding-top-form {
+        padding-top: 5rem;
+        }
+
+        .ml {
+        margin-left: 2rem;
+        }
+
+        .mr {
+        margin-right: 2rem;
+        }
+    </style>
     <title>History</title>
   </head>
 
   <body>
     <!-- Navbar start  -->
-    <nav>
+    <nav class="fixed-nav">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">History of Donations</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="#" class="brand-logo left ml">History of Donations</a>
+        <ul id="nav-mobile" class="mr right hide-on-med-and-down">
+            <li><a href="../index.html">Home</a></li>
+          </ul>
+        <ul id="nav-mobile" class="mr right hide-on-med-and-down">
           <li><a href="hospital.html">Assign organs</a></li>
-        </ul>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="../index.html">Home</a></li>
         </ul>
       </div>
     </nav>
     <!-- Navbar end  -->
     <!-- Form start  -->
-    <div class="row DonorForm center">
+    <div class="row DonorForm center padding-top-form">
       <div class="col s12 m12">
         <div class="card-panel white">
           <span class="grey-text">
