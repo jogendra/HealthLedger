@@ -1,7 +1,6 @@
 <img src="/Static/logo/icon.png" align="left" hspace="1" vspace="1" height="150" width="150">
 
 # Health Ledger
-
 Application for tracking Organs donations in hospitals and minimizing the scope of Organ trafficking using Blockchain (Hyperledger) technology.
 
 ---
@@ -80,6 +79,9 @@ Check out: [https://jogendra.github.io/HealthLedger/](https://jogendra.github.io
 - Make sure you are running the API Backend 
 - Open the `index.html` file
 - The front end is up and running 
+
+## Communication
+Please join our Gitter Chanel to discuss questions regarding the project: [https://gitter.im/jogendra/HealthLedger](https://gitter.im/jogendra/HealthLedger)
 
 ## Demo
 Click on the image belowe to watch the demo of the Application.
