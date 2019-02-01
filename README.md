@@ -1,9 +1,5 @@
 <img src="/Static/logo/icon.png" align="left" hspace="1" vspace="1" height="150" width="150">
 
-# Communication
-Our chat channel is on gitter here:  [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/jogendra/HealthLedger?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-
 # Health Ledger
 Application for tracking Organs donations in hospitals and minimizing the scope of Organ trafficking using Blockchain (Hyperledger) technology.
 
@@ -83,8 +79,8 @@ Our aim is to minimize the scope of organ trafficking with the help of Blockchai
 - Open the `index.html` file
 - The front end is up and running 
 
-# Communication
-Our chat channel is on gitter here:  [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/jogendra/HealthLedger?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+## Communication
+Please join our Gitter Chanel to discuss questions regarding the project: [https://gitter.im/jogendra/HealthLedger](https://gitter.im/jogendra/HealthLedger)
 
 ## Demo
 Click on the image belowe to watch the demo of the Application.
